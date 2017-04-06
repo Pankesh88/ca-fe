@@ -1,0 +1,84 @@
+<div class="d-horizontal">
+    <h1 style="text-align: center;">Create a Campaign</h1>
+    <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Campaign Name</label>
+        <div class="col-10">
+            <input class="form-control" type="text" placeholder="Enter Campaign name here" id="example-text-input">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="exampleTextarea" class="col-2 col-form-label">Campaign Description</label>
+        <div class="col-10">
+            <textarea class="form-control" id="exampleTextarea" placeholder="Describe your Campaign here" rows="3"></textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="exampleSelect1">Campaign Type</label>
+        <select class="form-control" id="exampleSelect1">
+            <option disabled selected> Please Select a option</option>
+            <option>Email</option>
+            <option>SMS</option>
+            <option>Email & SMS</option>
+        </select>
+    </div>
+    <div class="form-group row">
+        <label for="exampleSelect2">Campaign Domain</label>
+        <select class="form-control" id="exampleSelect2">
+            <option disabled selected> Please Select a option</option>
+            <option>Healthcare</option>
+            <option>Insurance</option>
+            <option>cars</option>
+        </select>
+    </div>
+    <div class="form-group row">
+        <label for="example-datetime-local-input" class="col-2 col-form-label">Start Date and time</label>
+        <div class="col-10">
+            <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-datetime-local-input1" class="col-2 col-form-label">End Date and time</label>
+        <div class="col-10">
+            <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input1">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="dataSetFile">Data File</label>
+        <input type="file" class="form-control-file" id="dataSetFile" on-read-file="showContent($fileContent)" aria-describedby="fileHelp">
+        <small id="fileHelp" class="form-text text-muted">Please upload the data file you would want to run your campaign on.</small>
+    </div>
+    <div ng-if="headers" class="row">
+        <label>Select Filters for file headers</label>
+        <table class="table table-sm" style="font-size:14px;">
+            <thead>
+                <tr>
+                    <th>Fields</th>
+                    <th>Rules</th>
+                    <th>Rule Value</th>
+                    <th>Operations</th>
+                </tr>
+            <tbody>
+                <tr ng-repeat="header in headers track by $index">
+                    <td>{{header}}</td>
+                    <td>
+                        <select class="form-control">
+                            <option disabled selected>Select Rule</option>
+                            <option>Greater than (>)</option>
+                            <option>Less than (<)</option>
+                            <option>Equal to (=)</option>
+                            <option>Contains</option>
+                        </select>
+                    </td>
+                    <td><input class="form-control" type="text" placeholder="Set value here"></td>
+                    <td>
+                        <button type="button" class="btn btn-info" ng-click="addRule($index,header)" data-tip="AND">AND</button>
+                        <button type="button" class="btn btn-info" ng-click="addRule($index,header)" data-tip="OR">OR</button>
+                        <button type="button" class="btn btn-danger" ng-click="removeRule($index)" data-tip="remove Rule">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <button type="submit" class="btn btn-primary row">Submit</button>
+</div>
