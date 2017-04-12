@@ -49,7 +49,6 @@
 
                                 firstLine = buffer.substr(0, eolIndex);
                                 headers = $.csv.toArray(firstLine);
-                                console.log(headers);
                                 scope.$apply(function () {
                                     fn(scope, {$fileContent: headers});
                                 });
