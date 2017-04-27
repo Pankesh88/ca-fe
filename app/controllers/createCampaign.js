@@ -1,6 +1,6 @@
 (function() {
 
-    var createCampaignController = function ($scope) {
+    var createCampaignController = function ($scope, $http) {
 
         function init() {
             $scope.showContent = function($fileContent){
@@ -21,8 +21,9 @@
 
         $scope.submitForm = function() {
             console.log("posting data....");
+            console.log(JSON.stringify($scope.headers));
+            $scope.data.rules = $scope.headers;
             console.log($scope.data);
-            console.log($scope.headers);
 
             var ruleObj =[];
 
@@ -36,6 +37,7 @@
 
             var newHeader = {};
             newHeader.field = header.field;
+            newHeader.fieldDisplayName = "";
             newHeader.fromFile = false;
             $scope.headers.splice(index + 1, 0, newHeader);
         };
@@ -50,6 +52,7 @@
         for (var i=0; i<$headers.length; i++){
             var map = {};
             map["field"] = $headers[i];
+            map["fieldDisplayName"] = $headers[i];
             map["fromFile"] = true;
             map["rule"] = "";
             map["value"] = "";
@@ -57,11 +60,11 @@
 
             headerObj.push(map);
         }
-        console.log(headerObj);
+        // console.log(headerObj);
         return headerObj;
     };
 
-    createCampaignController.$inject = ['$scope'];
+    createCampaignController.$inject = ['$scope','$http'];
 
     angular.module('campaignAnalyticsApp')
         .controller('createCampaignController', createCampaignController);

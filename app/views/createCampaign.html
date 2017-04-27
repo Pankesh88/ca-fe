@@ -45,7 +45,7 @@
         </div>
         <div class="form-group row">
             <label for="dataSetFile">Data File</label>
-            <input type="file" class="form-control-file" id="dataSetFile" on-read-file="showContent($fileContent)" aria-describedby="fileHelp">
+            <input type="file" class="form-control-file" file="file" id="dataSetFile" on-read-file="showContent($fileContent)" aria-describedby="fileHelp">
             <small id="fileHelp" class="form-text text-muted">Please upload the data file you would want to run your campaign on.</small>
         </div>
         <div ng-if="headers" class="row">
@@ -56,11 +56,12 @@
                     <th>Fields</th>
                     <th>Rules</th>
                     <th>Rule Value</th>
+                    <th>Operator</th>
                     <th>Operations</th>
                 </tr>
                 <tbody>
                 <tr ng-repeat="header in headers track by $index">
-                    <td data-fromFile="{{header.fromFile}}" data-operation="{{header.operation}}">{{header.field}}</td>
+                    <td data-fromFile="{{header.fromFile}}" data-operation="{{header.operation}}">{{header.fieldDisplayName}}</td>
                     <td>
                         <select id="{{$index}}" class="form-control" ng-model="header.rule" >
                             <option disabled selected>Select Rule</option>
@@ -72,9 +73,18 @@
                     </td>
                     <td><input class="form-control" type="text" ng-model="header.value" placeholder="Set value here"></td>
                     <td>
-                        <button type="button" class="btn btn-info" ng-click="addRule($index,header,'AND')" data-tip="AND">AND</button>
-                        <button type="button" class="btn btn-info" ng-click="addRule($index,header,'OR')" data-tip="OR">OR</button>
-                        <button type="button" class="btn btn-danger" ng-click="removeRule($index)" data-tip="remove Rule">Remove</button>
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-primary active">
+                                <input type="radio" name="options" id="option1" autocomplete="off" checked> AND
+                            </label>
+                            <label class="btn btn-primary">
+                                <input type="radio" name="options" id="option2" autocomplete="off"> OR
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-info" ng-click="addRule($index,header,'OR')" data-tip="OR">Add</button>
+                        <button type="button" class="btn btn-danger" ng-click="removeRule($index)" ng-show="!header.fromFile" data-tip="remove Rule">Remove</button>
                     </td>
                 </tr>
                 </tbody>
