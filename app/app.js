@@ -8,15 +8,18 @@
                 controller: 'createCampaignController',
                 templateUrl: 'app/views/createCampaign.html'
             })
-			 .when('/viewCampaign', {
+            .when('/viewcampaign', {
                 controller: 'viewCampaignController',
                 templateUrl: 'app/views/viewCampaign.html'
             })
-			.when('/scheduleStatus', {
+			.when('/schedule', {
                 controller: 'scheduleStatusController',
                 templateUrl: 'app/views/scheduleStatus.html'
             })
             .otherwise( { redirectTo: '/' } );
     });
 
+    app.config(['$locationProvider', function($locationProvider) {
+        $locationProvider.hashPrefix('');
+    }]);
 }());
