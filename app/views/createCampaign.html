@@ -4,43 +4,34 @@
         <div class="form-group row">
             <label for="campaignName" class="col-2 col-form-label">Campaign Name</label>
             <div class="col-10">
-                <input class="form-control" type="text" placeholder="Enter Campaign name here" ng-model="data.campaignName" id="campaignName">
+                <input class="form-control" type="text" placeholder="Enter Campaign name here" ng-model="data.campaignName" id="campaignName" required>
             </div>
         </div>
         <div class="form-group row">
-            <label for="CampaignDescription" class="col-2 col-form-label">Campaign Description</label>
+            <label for="campaignDescription" class="col-2 col-form-label">Campaign Description</label>
             <div class="col-10">
-                <textarea class="form-control" id="CampaignDescription" ng-model="data.CampaignDescription" placeholder="Describe your Campaign here" rows="3"></textarea>
+                <textarea class="form-control" id="campaignDescription" ng-model="data.campaignDescription" placeholder="Describe your Campaign here" rows="3"></textarea>
             </div>
         </div>
         <div class="form-group row">
-            <label for="CampaignType">Campaign Type</label>
-            <select class="form-control" id="CampaignType" ng-model="data.CampaignType">
+            <label for="campaignType">Campaign Type</label>
+            <select class="form-control" id="campaignType" ng-model="data.campaignType">
                 <option disabled selected> Please Select a option</option>
                 <option>Email</option>
                 <option>SMS</option>
                 <option>Email & SMS</option>
             </select>
         </div>
-        <div class="form-group row">
-            <label for="CampaignDomain">Campaign Domain</label>
-            <select class="form-control" id="CampaignDomain" ng-model="data.CampaignDomain">
-                <option disabled selected> Please Select a option</option>
-                <option>Healthcare</option>
-                <option>Insurance</option>
-                <option>cars</option>
-            </select>
-        </div>
-        <div class="form-group row">
-            <label for="StartDateTime" class="col-2 col-form-label">Start Date and time</label>
+		<div class="form-group row">
+            <label for="campaignMessage" class="col-2 col-form-label">Campaign Message</label>
             <div class="col-10">
-                <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="StartDateTime" ng-model="data.StartDateTime">
-            </div>
+                <textarea class="form-control" id="campaignMessage" ng-model="data.campaignMessage" placeholder="Describe your Campaign Message here" rows="3"></textarea>
         </div>
+		</div>
         <div class="form-group row">
-            <label for="EndDateTime" class="col-2 col-form-label">End Date and time</label>
+            <label for="scheduleDateTime" class="col-2 col-form-label">Schedule Date and time</label>
             <div class="col-10">
-                <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="EndDateTime">
+                <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="scheduleDateTime" ng-model="data.scheduleDateTime">
             </div>
         </div>
         <div class="form-group row">
@@ -63,8 +54,8 @@
                 <tr ng-repeat="header in headers track by $index">
                     <td data-fromFile="{{header.fromFile}}" data-operation="{{header.operation}}">{{header.fieldDisplayName}}</td>
                     <td>
-                        <select id="{{$index}}" class="form-control" ng-model="header.rule" >
-                            <option disabled selected>Select Rule</option>
+                        <select id="{{$index}}" class="form-control" ng-model="header.rule">
+                            <option>Select Rule</option>
                             <option>Greater than (>)</option>
                             <option>Less than (<)</option>
                             <option>Equal to (=)</option>
@@ -73,17 +64,17 @@
                     </td>
                     <td><input class="form-control" type="text" ng-model="header.value" placeholder="Set value here"></td>
                     <td>
-                        <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-primary active">
-                                <input type="radio" name="options" id="option1" autocomplete="off" checked> AND
+                        <div class="radioBtn btn-group" data-toggle="buttons">
+                            <label class="btn btn-primary  active">
+                                <input type="radio" autocomplete="off" ng-change="updateRuleOperator($index,'AND')" ng-model="header.operator" value="AND" data-tip="AND"> AND 
                             </label>
-                            <label class="btn btn-primary">
-                                <input type="radio" name="options" id="option2" autocomplete="off"> OR
+                            <label class="btn btn-primary  notActive">
+                                <input type="radio" autocomplete="off"  ng-change="updateRuleOperator($index,'OR')" ng-model="header.operator" value="OR" data-tip="OR"> OR
                             </label>
                         </div>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-info" ng-click="addRule($index,header,'OR')" data-tip="OR">Add</button>
+                        <button type="button" class="btn btn-info" ng-click="addRule($index,header,'Add')" data-tip="Add">Add</button>
                         <button type="button" class="btn btn-danger" ng-click="removeRule($index)" ng-show="!header.fromFile" data-tip="remove Rule">Remove</button>
                     </td>
                 </tr>
@@ -91,5 +82,22 @@
             </table>
         </div>
         <button type="submit" class="btn btn-primary row" ng-click="submitForm()">Submit</button>
+		<button class="btn btn-primary btn-large center" style="margin-left: 65px;" type="reset"  ng-click=""> 
+                        Reset
+          
+</button>
     </div>
+	
+	<div>
+		<h2>Hey</h2>
+<table>
+  <tr ng-repeat="campaign in campaignData">
+	  <td>{{campaign}}</td>
+    <td>{{campaign.campaignName}}</td>
+    <td>{{campaign.campaignType}}</td>
+	 <td>{{campaign.scheduleStartDate}}</td>
+  </tr>
+</table>
+
+</div>
 </form>
