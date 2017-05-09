@@ -10,30 +10,34 @@
         init();
 
         $scope.campaignList=[];
-
+		$scope.search_reset=false;
+		$scope.submitData = function(){
+			$scope.search_reset = true;
+		};
+		
         $scope.campaignList = [{
-            campaignName: "campaignName 1",
-            campaignDescription: "campaignDescription 1",
-            campaignType: "SMS",
-            scheduleDateTime: "10/05/2017"
+            serialNumber: "1",
+            campaignName: "Health",
+            Description : "It is a Health Insurance",
+            operation   : " "
         },
 		{
-			campaignName: "campaignName 2",
-			campaignDescription: "campaignDescription 2",
-			campaignType: "EMAIL",
-			scheduleDateTime: "10/05/2017"
+			serialNumber: "2",
+			campaignName: "Dental",
+			Description: "It is a Dental campaign",
+			operation: " "
 		},
 		{
-			campaignName: "campaignName 3",
-			campaignDescription: "campaignDescription 3",
-			campaignType: "EMAIL & SMS",
-			scheduleDateTime: "10/05/2017"
+			serialNumber: "3",
+			campaignName: "Car",
+			Description: "It is Car campaign",
+			operation: " "
 		},
 		{
-			campaignName: "campaignName 4",
-			campaignDescription: "campaignDescription 4",
-			campaignType: "EMAIL",
-			scheduleDateTime: "10/05/2017"
+			serialNumber: "4",
+			campaignName: "car",
+		    Description	: "It is car campaign",
+			operation: " "
 		}];
 
     };

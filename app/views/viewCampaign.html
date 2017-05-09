@@ -1,19 +1,49 @@
 <div ng-controller="viewCampaignController">
-	<div class="d-horizontal">
-		<div class="form-group row">
-			<div class="headline">Campaigns</div>
-		</div>
-		<div class="form-group row">
-			<table  class="table">
-				<thead>
-				<tr ng-repeat="campaign in campaignList">
-					<td>{{campaign.campaignName}}</td>
-					<td>{{campaign.campaignType}}</td>
-					<td>{{campaign.scheduleStartDate}}</td>
-				</tr>
-				</thead>
-			</table>
+    <div class="d-horizontal">
+        <div class="form-group row">
+            <div class="headline">View Campaigns</div>
+        </div>
+        <div class="form-group row">
+			 <th>
+				 <div class="input-append">
+					<label for="Search">Search:</label>
+					<input type="text" id="Search">
+					<button type="button" class="btn" data-tip="Search">Search</button>
+				 </div>
+			 <button class="btn" ng-click="submitData()">Advance Search</button>
+				 
+				 <div ng-if="search_reset">
+					 <br>
+                <select class="form-control">
+                    <option value="0">Campaign Name</option>
+                    <option value="1">Campaign Description</option>
+                    <option value="2">Operation</option>
+                </select>
+            </div>
 
-		</div>
+             <table class="table table-sm" style="font-size:14px;">
+                <thead>
+                <tr>
+                    <th>Sno</th>
+                    <th>Campaign Name</th>
+                    <th>Campaign Description</th>
+                    <th>Operations</th>
+                </tr>
+                <tbody>
+                <tr ng-repeat="campaign in campaignList track by $index">
+                    <td><span ng-bind="{{$index + 1}}"></span></td>
+                    <td><span ng-bind="campaign.campaignName"></span></td>
+					<td><span ng-bind="campaign.Description"></span></td>
+                  <!--  <td><span ng-bind="campaign.runStatus"></span></td>-->
+                    <td>
+                        <button type="button" class="btn btn-info" ng-click="addRule($index,header,'Add')" data-tip="Add">ADD</button>
+                        <button type="button" class="btn btn-danger" ng-click="removeRule($index)" ng-show="!header.fromFile" data-tip="remove Rule">Edit</button>
+                        <button ng-if="campaign.runStatus == 'Completed'" type="button" class="btn btn-info">Result</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
 	</div>
-</div>
+	</div>
