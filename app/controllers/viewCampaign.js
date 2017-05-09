@@ -43,4 +43,4 @@
     angular.module('campaignAnalyticsApp')
         .controller('viewCampaignController', viewCampaignController);
 
-}());
+}());                                                                  

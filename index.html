@@ -1,12 +1,62 @@
 <html ng-app="campaignAnalyticsApp">
 <head>
+	<style>
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: aqua;
+    clear: left;
+    text-align: center;
+}
+
+nav {
+    float: left;
+    max-width: 160px;
+	height: 100px;
+	background-color: coral;
+    margin: 0;
+    padding: 1em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+   
+nav ul a {
+    text-decoration: none;
+}
+</style>
     <title>Create Campaign</title>
     <link rel="stylesheet" href="lib/css/bootstrap.min.css">
     <link rel="stylesheet" href="app/css/style.css">
+	
 </head>
 
 <body>
-    <div ng-view></div>
+	<div class="container">
+
+<header>
+   <h1>CampaignAnalytics</h1>
+</header>
+  
+<nav>
+  <ul>
+    <li><a href="createCampaign.html">CreateCampaign</a></li>
+    <li><a href="viewCampaign.html">ViewCampaign</a></li>
+    <li><a href="scheduleCampaign.html">ScheduleCampaign</a></li>
+  </ul>
+</nav>
+		<div ng-view></div>
+
+<footer>Copyright &copy; CampaignAnalytics.com</footer>
+
+</div>
 </body>
 
 <!-- LIBRARIES -->
