@@ -1,6 +1,6 @@
 <form id="createCampaign">
     <div class="d-horizontal">
-        <h1 style="text-align: center;">Create a Campaign</h1>
+        <div class="headline">Create a Campaign</div>
         <div class="form-group row">
             <label for="campaignName" class="col-2 col-form-label">Campaign Name</label>
             <div class="col-10">
@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="form-group row">
-            <label for="campaignType">Campaign Type</label>
+            <label for="campaignType" class="col-2 col-form-label">Campaign Type</label>
             <select class="form-control" id="campaignType" ng-model="data.campaignType">
                 <option disabled selected> Please Select a option</option>
                 <option>Email</option>
@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="form-group row">
-            <label for="dataSetFile">Data File</label>
+            <label for="dataSetFile" class="col-2 col-form-label">Data File</label>
             <input type="file" class="form-control-file" file="file" id="dataSetFile" on-read-file="showContent($fileContent)" aria-describedby="fileHelp">
             <small id="fileHelp" class="form-text text-muted">Please upload the data file you would want to run your campaign on.</small>
         </div>

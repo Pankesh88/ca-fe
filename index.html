@@ -1,60 +1,66 @@
 <html ng-app="campaignAnalyticsApp">
 <head>
-	<style>
-div.container {
-    width: 100%;
-    border: 1px solid gray;
-}
+    <style>
+        div.container {
+            width: 100%;
+            border: 1px solid gray;
+        }
 
-header, footer {
-    padding: 1em;
-    color: white;
-    background-color: aqua;
-    clear: left;
-    text-align: center;
-}
+        .header, footer {
+            padding: 1em;
+            color: #338bb8;
+            background: rgba(153, 153, 153, 0.23);
+            clear: left;
+        }
+        .nav {
+            color: #338bb8;
+            width: 17%;
+            background: rgba(153, 153, 153, 0.23);
+            float: left;
+            height: 100vh;
+        }
 
-nav {
-    float: left;
-    max-width: 160px;
-	height: 100px;
-	background-color: coral;
-    margin: 0;
-    padding: 1em;
-}
+        .nav a {
+            color: #338bb8;
+            text-decoration:none;
+        }
+        .main {
+            width:83%;
+        }
+        .nav ul {
+            list-style-type: none;
+        }
+        .menuItem {
+            padding: 10px;
+        }
+        .selected {
+            background: rgba(153, 153, 153, 0.7)
+        }
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-   
-nav ul a {
-    text-decoration: none;
-}
-</style>
+    </style>
     <title>Create Campaign</title>
     <link rel="stylesheet" href="lib/css/bootstrap.min.css">
     <link rel="stylesheet" href="app/css/style.css">
-	
+
 </head>
 
 <body>
-	<div class="container">
+<div class="container">
 
-<header>
-   <h1>CampaignAnalytics</h1>
-</header>
-  
-<nav>
-  <ul>
-    <li><a href="createCampaign.html">CreateCampaign</a></li>
-    <li><a href="viewCampaign.html">ViewCampaign</a></li>
-    <li><a href="scheduleCampaign.html">ScheduleCampaign</a></li>
-  </ul>
-</nav>
-		<div ng-view></div>
+    <div class="header">
+        <span style="font-size: 20px;padding-left: 17%;">Campaign Analytics</span>
+    </div>
 
-<footer>Copyright &copy; CampaignAnalytics.com</footer>
+    <div class="leftRail">
+        <div class="nav">
+                <div class="menuItem navlink selected"><a href="#/">Create a Campaign</a></div>
+                <div class="menuItem navlink"><a href="#/viewcampaign">View Campaigns</a></div>
+                <div class="menuItem navlink"><a href="#/scheduled">Scheduled Campaign</a></div>
+        </div>
+        <div class="main" ng-view></div>
+    </div>
+
+    <footer>Copyright &copy; CampaignAnalytics.com</footer>
 
 </div>
 </body>
@@ -83,12 +89,23 @@ nav ul a {
 <!-- CONTROLLER -->
 <script type="text/javascript" src="app/controllers/createCampaign.js"></script>
 <script type="text/javascript" src="app/controllers/viewCampaign.js"></script>
+<script type="text/javascript" src="app/controllers/scheduleStatusController.js"></script>
 <!-- / -->
 
 <!-- ASSETS -->
 <script type="text/javascript" src="app/js/index.js"></script>
 <!-- / -->
 
+<script>
 
+    $( document ).ready(function() {
+        $(".navlink").click(function(){
+            $(".navlink").removeClass("selected");
+            $(this).addClass("selected");
+            console.log("I'm being clicked");
+        });
+    });
+
+</script>
 
 </html>

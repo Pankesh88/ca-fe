@@ -12,7 +12,7 @@
                 controller: 'viewCampaignController',
                 templateUrl: 'app/views/viewCampaign.html'
             })
-			.when('/schedule', {
+			.when('/scheduled', {
                 controller: 'scheduleStatusController',
                 templateUrl: 'app/views/scheduleStatus.html'
             })

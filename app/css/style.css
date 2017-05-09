@@ -1,5 +1,20 @@
 .d-horizontal{
-    display:block;
-    width:50%;
-    margin:0 auto;
+    display: inline-block;
+    width: 50%;
+    /* margin: 0 auto; */
+    margin-left: 50px;
+}
+
+.col-form-label {
+    color: #338bb8;
+}
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+.headline {
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    color: #338bb8;
 }

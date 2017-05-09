@@ -1,11 +1,19 @@
-<div ng-app="myApp" ng-controller="scheduleStatus"> 
-<table>
-  <tr ng-repeat="x in names">
-    <td>{{ x.Serial Number }}</td>
-    <td>{{ x.Campaign Name }}</td>
-	<td>{{ x.Campaign Report }}</td>
-	 <td><button ng-model="Report">Report</button></td>
-  </tr>
-</table>
+<div ng-controller="scheduleStatusController">
+    <div class="d-horizontal">
+        <div class="form-group row">
+            <div class="headline">Scheduled Campaigns</div>
+        </div>
+        <div class="form-group row">
+            <table  class="table">
+                <thead>
+                <tr ng-repeat="campaign in campaignList">
+                    <td>{{campaign.campaignName}}</td>
+                    <td>{{campaign.campaignType}}</td>
+                    <td>{{campaign.scheduleStartDate}}</td>
+                </tr>
+                </thead>
+            </table>
 
+        </div>
+    </div>
 </div>

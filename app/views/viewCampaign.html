@@ -1,16 +1,19 @@
-<div ng-app="myApp" ng-controller="viewCampaign"> 
-<div class="d-horizontal">
-	<div class="form-group row">
-<table  class="table">
-	<thead>
-  <tr ng-repeat="campaign in campaignList">
-    <td>{{campaign.campaignName}}</td>
-    <td>{{campaign.campaignType}}</td>
-	 <td>{{campaign.scheduleStartDate}}</td>
-  </tr>
-	</thead>	
-</table>
+<div ng-controller="viewCampaignController">
+	<div class="d-horizontal">
+		<div class="form-group row">
+			<div class="headline">Campaigns</div>
+		</div>
+		<div class="form-group row">
+			<table  class="table">
+				<thead>
+				<tr ng-repeat="campaign in campaignList">
+					<td>{{campaign.campaignName}}</td>
+					<td>{{campaign.campaignType}}</td>
+					<td>{{campaign.scheduleStartDate}}</td>
+				</tr>
+				</thead>
+			</table>
 
-</div>
+		</div>
 	</div>
 </div>
