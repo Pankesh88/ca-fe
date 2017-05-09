@@ -1,6 +1,6 @@
 .d-horizontal{
     display: inline-block;
-    width: 50%;
+    min-width: 60%;
     /* margin: 0 auto; */
     margin-left: 50px;
 }

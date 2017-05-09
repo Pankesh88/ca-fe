@@ -24,9 +24,6 @@
             color: #338bb8;
             text-decoration:none;
         }
-        .main {
-            width:83%;
-        }
         .nav ul {
             list-style-type: none;
         }
@@ -35,6 +32,12 @@
         }
         .selected {
             background: rgba(153, 153, 153, 0.7)
+        }
+        .navlink:visited {
+            text-decoration: none;
+        }
+        .navlink:hover {
+            text-decoration: none;
         }
 
     </style>
@@ -53,9 +56,9 @@
 
     <div class="leftRail">
         <div class="nav">
-                <div class="menuItem navlink selected"><a href="#/">Create a Campaign</a></div>
-                <div class="menuItem navlink"><a href="#/viewcampaign">View Campaigns</a></div>
-                <div class="menuItem navlink"><a href="#/scheduled">Scheduled Campaign</a></div>
+            <a href="#/"><div class="menuItem navlink selected">Create a Campaign</div></a>
+            <a href="#/viewcampaign"><div class="menuItem navlink">View Campaigns</div></a>
+            <a href="#/scheduled"><div class="menuItem navlink">Scheduled Campaign</div></a>
         </div>
         <div class="main" ng-view></div>
     </div>

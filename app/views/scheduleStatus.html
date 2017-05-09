@@ -4,14 +4,30 @@
             <div class="headline">Scheduled Campaigns</div>
         </div>
         <div class="form-group row">
-            <table  class="table">
+            <table class="table table-sm" style="font-size:14px;">
                 <thead>
-                <tr ng-repeat="campaign in campaignList">
-                    <td>{{campaign.campaignName}}</td>
-                    <td>{{campaign.campaignType}}</td>
-                    <td>{{campaign.scheduleStartDate}}</td>
+                <tr>
+                    <th>Sno</th>
+                    <th>Campaign Name</th>
+                    <th>Campaign Description</th>
+                    <th>Scheduled Time</th>
+                    <th>Status</th>
+                    <th>Operations</th>
                 </tr>
-                </thead>
+                <tbody>
+                <tr ng-repeat="campaign in campaignList track by $index">
+                    <td><span ng-bind="{{$index + 1}}"></span></td>
+                    <td><span ng-bind="campaign.campaignName"></span></td>
+                    <td><span ng-bind="campaign.campaignDescription"></span></td>
+                    <td><span ng-bind="campaign.scheduleDateTime"></span></td>
+                    <td><span ng-bind="campaign.runStatus"></span></td>
+                    <td>
+                        <button type="button" class="btn btn-info" ng-click="addRule($index,header,'Add')" data-tip="Add">Change</button>
+                        <button type="button" class="btn btn-danger" ng-click="removeRule($index)" ng-show="!header.fromFile" data-tip="remove Rule">Cancel</button>
+                        <button ng-if="campaign.runStatus == 'Completed'" type="button" class="btn btn-info">Result</button>
+                    </td>
+                </tr>
+                </tbody>
             </table>
 
         </div>
