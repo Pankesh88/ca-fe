@@ -16,6 +16,10 @@
                 controller: 'scheduleStatusController',
                 templateUrl: 'app/views/scheduleStatus.html'
             })
+			.when('/campaignReport', {
+                controller: 'campaignReportController',
+                templateUrl: 'app/views/campaignReport.html'
+			})
             .otherwise( { redirectTo: '/' } );
     });
 

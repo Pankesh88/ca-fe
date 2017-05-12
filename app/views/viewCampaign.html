@@ -47,7 +47,7 @@
 									   </div>
 									 </div>
 								 </form>
-             <table class="table table-sm"  style="color: #338bb8;" style="font-size:14px;">
+            <table class="table table-sm" style="font-size:14px;">
                 <thead>
                 <tr>
                     <th>Sno</th>
@@ -62,7 +62,7 @@
 					<td><span ng-bind="campaign.Description"></span></td>
                    <!--<td><span ng-bind="campaign.runStatus"></span></td>-->
                     <td>
-						<a href="127.0.0.1:8080/#/"><button type="button" class="btn btn-info" ng-click="addRule($index,header,'Add')" data-tip="create New">Create New</button></a>
+						<a href="127.0.0.1:8080"><button type="button" class="btn btn-info" ng-click="addRule($index,header,'Add')" data-tip="create New">Create New</button></a>
                         <button type="button" class="btn btn-danger" ng-click="removeRule($index)" ng-show="!header.fromFile" data-tip="remove Rule">Edit</button>
                         <button ng-if="campaign.runStatus == 'Completed'" type="button" class="btn btn-info">Result</button>
                     </td>
