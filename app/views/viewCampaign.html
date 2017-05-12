@@ -1,75 +1,70 @@
 <div ng-controller="viewCampaignController">
-    <div class="d-horizontal">
-        <div class="row">
-            <div class="headline">View Campaigns</div>
-        </div>
-        <div class="row">
-			 <th> 
-				 <div class="row">
-					 <table>
-					 <tr>
-						 <th><label for="Search"  style="color: #338bb8;">Search:</label></th>
-						 <div class="col-sm-10">
-						 <th><input class="form-control" type="text" id="Search" placeholder="Enter Campaign search" ng-model="findData"></th>
-						 </div>
-						 <th><button  class="btn btn-info" style="right:16px;" >Search</button></th>
-						 </tr>
-					 </table>
-					<a ng-click="isAdvancedOpen = !isAdvancedOpen" style="cursor:pointer;">Advance Search</a>
-				 
-				 <div ng-show="isAdvancedOpen">
-					 <form class="form-horizontal">
-  						<div class="form-group">
-							<label class="control-label col-sm-2" style="color: #338bb8;" for="Campaign">Campaign:</label>
-							<div class="col-sm-5">
-								<input type="email" class="form-control" id="email" placeholder="Enter Campaign Name">
-							</div>
-						 </div>
-						 <form class="form-horizontal">
-							 <div class="form-group">
-								 <label class="control-label col-sm-2"  style="color: #338bb8;" for="Description">Description:</label>
-								 <div class="col-sm-5">
-									 <input type="Description" class="form-control" id="Description" placeholder="Enter Description here">
-								 </div>
-							 </div>
-							 <form class="form-horizontal">
-								 <div class="form-group">
-									 <label for="scheduleDateTime" class="control-label col-sm-2"  style="color: #338bb8;">Schedule Date and time</label>
-            							<div class="col-sm-5">
-											<input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="scheduleDateTime" ng-model="data.scheduleDateTime">
-									 </div>
-								 </div>
-								 <form class="form-horizontal">
-								   <div class="form-group">
-									   <label for="endDateTime" class="control-label col-sm-2" style="color: #338bb8;">End Date and time</label>
-									   <div class="col-sm-5">
-										   <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="endDateTime" ng-model="data.endDateTime">
-									   </div>
-									 </div>
-								 </form>
-            <table class="table table-sm" style="font-size:14px;">
-                <thead>
-                <tr>
-                    <th>Sno</th>
-                    <th>Campaign Name</th>
-                    <th>Campaign Description</th>
-                    <th>Operations</th>
-                </tr>
-                <tbody>
-                <tr ng-repeat="campaign in campaignList  | filter:findData">
-                    <td><span ng-bind="{{$index + 1}}"></span></td>
-                    <td><span ng-bind="campaign.campaignName"></span></td>
-					<td><span ng-bind="campaign.Description"></span></td>
-                   <!--<td><span ng-bind="campaign.runStatus"></span></td>-->
-                    <td>
-						<a href="127.0.0.1:8080"><button type="button" class="btn btn-info" ng-click="addRule($index,header,'Add')" data-tip="create New">Create New</button></a>
-                        <button type="button" class="btn btn-danger" ng-click="removeRule($index)" ng-show="!header.fromFile" data-tip="remove Rule">Edit</button>
-                        <button ng-if="campaign.runStatus == 'Completed'" type="button" class="btn btn-info">Result</button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+	<div class="d-horizontal">
+		<div class="row">
+			<div class="headline">View Campaigns</div>
+		</div>
+		<div class="row">
+			<table width="100%">
+				<tr>
+					<td width="10%"><label for="Search">Search:</label></td>
+					<td><input class="form-control" type="text" id="Search" placeholder="Enter Campaign search" ng-model="findData"></td>
+				</tr>
+			</table>
+			<div style="float: right;padding: 10px;">
+				<a ng-click="isAdvancedOpen = !isAdvancedOpen" style="cursor:pointer;">Advance Search</a>
+			</div>
+			<br><br>
 
-        </div>
+			<div ng-show="isAdvancedOpen">
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="Campaign">Campaign:</label>
+						<div class="col-sm-8" id="Campaign">
+							<input type="email" class="form-control" id="email" placeholder="Enter Campaign Name">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="Description">Description:</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" id="Description" placeholder="Enter Description here">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="scheduleDateTime" class="control-label col-sm-2">Schedule Date and time</label>
+						<div class="col-sm-8">
+							<input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="scheduleDateTime" ng-model="data.scheduleDateTime">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="endDateTime" class="control-label col-sm-2">End Date and time</label>
+						<div class="col-sm-8">
+							<input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="endDateTime" ng-model="data.endDateTime">
+						</div>
+					</div>
+					<div class="form-group" style="margin-right:140px">
+						<button type="button" style="float: right;padding: 10px;" class="btn btn-info">Search</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="row">
+			<table class="table table-sm" style="font-size:14px;">
+				<tr>
+					<th>Sno</th>
+					<th>Campaign Name</th>
+					<th>Campaign Description</th>
+					<th>Operations</th>
+				</tr>
+				<tr ng-repeat="campaign in campaignList  | filter:findData">
+					<td><span ng-bind="{{$index + 1}}"></span></td>
+					<td><div ng-bind="campaign.campaignName"></div></td>
+					<td><div style="width:450px;" ng-bind="campaign.Description"></div></td>
+					<td>
+						<a href=""><button type="button" class="btn btn-info" ng-click="addRule($index,header,'Add')">Create New</button></a>
+						<button type="button" class="btn btn-danger" ng-show="!campaign.isTemplate" >Delete</button>
+					</td>
+				</tr>
+			</table>
+		</div>
 	</div>
-	</div>
+</div>

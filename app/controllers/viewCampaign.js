@@ -19,26 +19,30 @@
         $scope.campaignList = [{
             serialNumber: "1",
             campaignName: "Health",
-            Description : "It is a Health Insurance",
-            operation   : " "
+            Description : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. col-sm-8anged. e recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            operation   : " ",
+			isTemplate: true
         },
 		{
 			serialNumber: "2",
 			campaignName: "Dental",
-			Description: "It is a Dental campaign",
-			operation: " "
+			Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. col-sm-8anged. e recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+			operation: " ",
+            isTemplate: true
 		},
 		{
 			serialNumber: "3",
 			campaignName: "Car",
-			Description: "It is Car campaign",
-			operation: " "
+			Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. col-sm-8anged. e recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+			operation: " ",
+            isTemplate: true
 		},
 		{
 			serialNumber: "4",
 			campaignName: "car",
-		    Description	: "It is car campaign",
-			operation: " "
+		    Description	: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. col-sm-8anged. e recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+			operation: " ",
+            isTemplate: false
 		}];
 
     };

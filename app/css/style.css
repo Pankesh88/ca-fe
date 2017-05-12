@@ -6,7 +6,6 @@
 }
 
 .col-form-label {
-    color: #338bb8;
 }
 .row {
     margin-left: 0;
@@ -17,4 +16,12 @@
     margin-top: 20px;
     margin-bottom: 25px;
     color: #338bb8;
+}
+
+/*Styles for campaignReport.html*/
+.rounded{
+    border: 1px solid;
+    border-color: #999;
+    border-radius: 5px;
+    padding: 10px;
 }

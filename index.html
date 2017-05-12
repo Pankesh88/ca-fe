@@ -8,20 +8,24 @@
 
         .header, footer {
             padding: 1em;
-            color: #338bb8;
-            background: rgba(153, 153, 153, 0.23);
+            color: white;
+            background: #3c8dbc;
             clear: left;
         }
         .nav {
-            color: #338bb8;
+            color: white;
             width: 17%;
-            background: rgba(153, 153, 153, 0.23);
+            background: #222d32;
             float: left;
             height: 100vh;
         }
 
         .nav a {
-            color: #338bb8;
+            color: white;
+            text-decoration:none;
+        }
+        .nav a:hover {
+            color: white;
             text-decoration:none;
         }
         .nav ul {
@@ -31,7 +35,9 @@
             padding: 10px;
         }
         .selected {
-            background: rgba(153, 153, 153, 0.7)
+            background: rgba(153, 153, 153, 0.7);
+            color: white;
+            text-decoration: none;
         }
         .navlink:visited {
             text-decoration: none;
@@ -51,18 +57,29 @@
 <div class="container">
 
     <div class="header">
-        <span style="font-size: 20px;padding-left: 17%;">Campaign Analytics</span>
+        <span style="font-size: 20px;padding-left: 17%;"><span style="color:blanchedalmond;">Campaign</span>Analytics</span>
     </div>
 
     <div class="leftRail">
         <div class="nav">
-            <a href="#/"><div class="menuItem navlink selected">Create a Campaign</div></a>
-            <a href="#/viewcampaign"><div class="menuItem navlink">View Campaigns</div></a>
-            <a href="#/scheduled"><div class="menuItem navlink">Scheduled Campaign</div></a>
-			<a href="#/campaignReport"><div class="menuItem navlink">Campaign Report</div></a>
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="http://35.163.140.136/resource/dist/img/user2-160x160.jpg"  width="60px" style="padding:10px;" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info" style="margin-top: 10px;">
+                    <span>Pankesh Kumar</span><br>
+                    <span>ADMIN</span>
+                </div>
+            </div>
+            <div style="clear: both;margin-top: 20px;border-top: 1px solid;padding-top: 35px;">
+                <a href="#/"><div class="menuItem navlink selected">Create a Campaign</div></a>
+                <a href="#/viewcampaign"><div class="menuItem navlink">View Campaigns</div></a>
+                <a href="#/scheduled"><div class="menuItem navlink">Scheduled Campaign</div></a>
+                <a href="#/campaignReport"><div class="menuItem navlink">Campaign Report</div></a>
+            </div>
         </div>
-        <div class="main" ng-view></div>
     </div>
+    <div class="main" ng-view></div>
 
     <footer>Copyright &copy; CampaignAnalytics.com</footer>
 
@@ -94,9 +111,9 @@
 <script type="text/javascript" src="app/controllers/createCampaign.js"></script>
 <script type="text/javascript" src="app/controllers/viewCampaign.js"></script>
 <script type="text/javascript" src="app/controllers/scheduleStatusController.js"></script>
-<script type="text/javascript" src="app/controllers/campaignReportController.js"></script>
+<script type="text/javascript" src="app/controllers/campaignReport.js"></script>
 
-	
+
 <!-- / -->
 
 <!-- ASSETS -->
@@ -104,7 +121,6 @@
 <!-- / -->
 
 <script>
-
     $( document ).ready(function() {
         $(".navlink").click(function(){
             $(".navlink").removeClass("selected");
@@ -112,7 +128,6 @@
             console.log("I'm being clicked");
         });
     });
-
 </script>
 
 </html>
